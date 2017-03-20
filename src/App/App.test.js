@@ -15,6 +15,12 @@ describe('App', ()=> {
     expect(wrapper.find('.App').length).toBe(1)
   });
 
-  it('state should default to an empty object', )
+  it('state should default to an empty object', () => {
+    const wrapper = mount(<App/>)
+    console.log(wrapper.state().data);
+    expect(wrapper.state().data).toBe({});
+  });
+
+  
 
 })

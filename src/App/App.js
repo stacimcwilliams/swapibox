@@ -6,7 +6,10 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      data: {}
+      people: {},
+      vehicles: {},
+      planets: {},
+      films: {},
     }
   }
 
@@ -16,9 +19,11 @@ class App extends Component {
   }
 
   fetchApi(){
-    const result = fetch('http://swapi.co/api/planets/1/')
-                      .then(data => data.json())
-                      .then(json => this.setState({data: json}))
+    Object.keys(this.state).forEach( key => {
+      fetch('http://swapi.co/api/'+key)
+        .then(data => data.json())
+        .then(json => this.setState({[key]: json}))
+    })
   }
 
   render() {
