@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { shallow, mount } from 'enzyme';
 
 describe('App', ()=> {
 
@@ -9,6 +10,11 @@ describe('App', ()=> {
     ReactDOM.render(<App />, div);
   });
 
-  // it('')
+  it('should have a className of app', () => {
+    const wrapper = shallow(<App/>)
+    expect(wrapper.find('.App').length).toBe(1)
+  });
+
+  it('state should default to an empty object', )
 
 })
