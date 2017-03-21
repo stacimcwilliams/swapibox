@@ -21,4 +21,4 @@ const Film = ({movie}) => {
   )
 }
 
-export default Film;
+// export default Film;
