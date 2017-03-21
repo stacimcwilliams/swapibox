@@ -10,16 +10,23 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      selectedCategory: null
+      selectedCategory: null,
+      films: null
     }
   }
 
   componentWillMount(){
     console.log('componentWillMount');
-    // this.fetchApi();
+    this.fetchApi('films');
   }
 
   fetchApi(name){
+    if (name === 'films') {
+      return fetch('http://swapi.co/api/'+name)
+        .then(data => data.json())
+        .then(json =>
+          this.setState({films: json}))
+    }
       fetch('http://swapi.co/api/'+name)
         .then(data => data.json())
         .then(json =>
