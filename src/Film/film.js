@@ -3,7 +3,7 @@ import React from 'react';
 const randomQuote = (movie) => {
   console.log(movie.results);
   // movie.results
-  const randomIndex = Math.floor(Math.random() * movie.count);
+  const randomIndex = Math.floor(Math.random(7-1) * movie.count);
   // let quote = movie.results[randomIndex].opening_crawl;
   // console.log(quote);
 
