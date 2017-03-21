@@ -1,9 +1,21 @@
 import React from 'react';
 
-const ObjectCleaner = ({ data }) => {
-  return (
-    Object.keys(data)
-  )
+// const filmCleaner = () => {
+//
+// }
+// const peopleCleaner = () => {
+//
+// }
+// const planetCleaner = () => {
+//
+// }
+// const vehicleCleaner = () => {
+//
+// }
+
+const ObjectCleaner = ({data, handleCleaner}) => {
+  console.log('Object Cleaner working');
+  // return Object.assign({}, filmCleaner(), peopleCleaner(), planetCleaner(), vehicleCleaner())
 }
 
 export default ObjectCleaner;

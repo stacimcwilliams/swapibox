@@ -1,5 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  background-color: #C0C0C0;
+  font-family: 'Diplomata SC', cursive;
+  background-image: url("http://more-sky.com/data/out/12/IMG_531955.bmp")
 }

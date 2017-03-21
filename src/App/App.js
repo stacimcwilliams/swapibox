@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardWrapper from '../CardWrapper/CardWrapper.js'
+import Film from '../Film/film';
+// import ObjectCleaner from '../ObjectCleaner/objectCleaner.js'
+
 
 class App extends Component {
   constructor(){
@@ -32,17 +35,15 @@ class App extends Component {
       <div className="App">
         <section className="header">
           <h1>SWAPI-Box</h1>
-          <p>View Favorites</p>
+          <p className="favorites">View Favorites</p>
         </section>
-        <section>
-          <button>People</button>
-          <button>Planets</button>
-          <button>Vehicles</button>
+        <section className="button-section">
+          <button className="button">People</button>
+          <button className="button">Planets</button>
+          <button className="button">Vehicles</button>
         </section>
-        <section className="card-section">
-          <CardWrapper data={this.state.data}/>
-        </section>
-
+        <Film movie={this.state.films}/>
+        <CardWrapper films={this.state.data}/>
       </div>
     );
   }
