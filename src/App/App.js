@@ -11,12 +11,13 @@ class App extends Component {
     super()
     this.state = {
       selectedCategory: null
+      films:
     }
   }
 
   componentWillMount(){
     console.log('componentWillMount');
-    // this.fetchApi();
+    this.fetchApi('films');
   }
 
   fetchApi(name){
