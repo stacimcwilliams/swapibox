@@ -10,8 +10,8 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      selectedCategory: null
-      films:
+      selectedCategory: null,
+      films: null
     }
   }
 
@@ -21,6 +21,12 @@ class App extends Component {
   }
 
   fetchApi(name){
+    if (name === 'films') {
+      return fetch('http://swapi.co/api/'+name)
+        .then(data => data.json())
+        .then(json =>
+          this.setState({films: json}))
+    }
       fetch('http://swapi.co/api/'+name)
         .then(data => data.json())
         .then(json =>
