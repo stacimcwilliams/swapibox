@@ -1,4 +1,5 @@
 import React from 'react';
+import './Film.css'
 
 const randomQuote = (movie) => {
   const randomIndex = Math.floor(Math.random() * movie.count);
