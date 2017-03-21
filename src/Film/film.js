@@ -1,24 +1,27 @@
 import React from 'react';
 
 const randomQuote = (movie) => {
-  console.log(movie.results);
-  // movie.results
-  const randomIndex = Math.floor(Math.random(7-1) * movie.count);
-  // let quote = movie.results[randomIndex].opening_crawl;
-  // console.log(quote);
-
+  const randomIndex = Math.floor(Math.random() * movie.count);
+  return {
+    quote: movie.results[randomIndex].opening_crawl,
+    title: movie.results[randomIndex].title,
+    year: movie.results[randomIndex].release_date
+  }
 }
 
-
-
-
-const Film = ({movie}) => {
-  console.log(movie);
-  return(
-    <div>
-      { randomQuote(movie) }
-    </div>
-  )
+const Film = ({ movie }) => {
+  if (movie) {
+    const randomMovie = randomQuote(movie)
+    return(
+      <div className='random-film'>
+        <p>{ randomMovie.quote }</p>
+        <p>{ randomMovie.title }</p>
+        <p>{ randomMovie.year }</p>
+      </div>
+    )
+  } else {
+    return <div></div>
+  }
 }
 
-// export default Film;
+export default Film;

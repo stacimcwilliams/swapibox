@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardWrapper from '../CardWrapper/CardWrapper.js'
-// import Film from '../Film/Film';
+import Film from '../Film/Film';
 import Button from '../Button/Button';
 // import ObjectCleaner from '../ObjectCleaner/objectCleaner.js'
 
@@ -10,20 +10,25 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      selectedCategory: null
+      selectedCategory: {},
+      films: undefined
     }
   }
 
-  componentWillMount(){
+  componentDidMount(){
     console.log('componentWillMount');
-    // this.fetchApi();
+    this.fetchApi('films');
   }
 
   fetchApi(name){
+    if (name === 'films') {
+      return fetch('http://swapi.co/api/'+name)
+        .then(data => data.json())
+        .then(json => this.setState({films: json}))
+    }
       fetch('http://swapi.co/api/'+name)
         .then(data => data.json())
-        .then(json =>
-          this.setState({selectedCategory: json}))
+        .then(json => this.setState({selectedCategory: json}))
   }
 
 
@@ -36,6 +41,7 @@ class App extends Component {
           <p className="favorites">View Favorites</p>
         </section>
         <Button handleClick={ (name) => this.fetchApi(name) }/>
+        <Film movie={this.state.films}/>
         <CardWrapper films={this.state.selectedCategory}/>
       </div>
     );
@@ -43,5 +49,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <Film movie={this.state.films}/>
