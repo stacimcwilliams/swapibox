@@ -1,17 +1,18 @@
 import React from 'react';
+import './Film.css'
 
 const randomQuote = (movie) => {
   const randomIndex = Math.floor(Math.random() * movie.count);
   return {
-      quote: movie.results[randomIndex].opening_crawl,
-      title: movie.results[randomIndex].title,
-      year: movie.results[randomIndex].release_date
-   }
+    quote: movie.results[randomIndex].opening_crawl,
+    title: movie.results[randomIndex].title,
+    year: movie.results[randomIndex].release_date
+  }
 }
 
 const Film = ({ movie }) => {
   if (movie) {
-  const randomMovie = randomQuote(movie)
+    const randomMovie = randomQuote(movie)
     return(
       <div className='random-film'>
         <p>{ randomMovie.quote }</p>

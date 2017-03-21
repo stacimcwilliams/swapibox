@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import CardWrapper from '../CardWrapper/CardWrapper.js'
-import Film from '../Film/Film';
-import Button from '../Button/Button';
+// import CardWrapper from '../CardWrapper/CardWrapper.js'
+import Film from '../Film/Film.js';
+// import Button from '../Button/Button';
+import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import PeopleCard from '../PeopleCard/PeopleCard.js';
 // import ObjectCleaner from '../ObjectCleaner/objectCleaner.js'
 
 
@@ -10,7 +12,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      selectedCategory: {},
+      selectedCategory: undefined,
       films: undefined
     }
   }
@@ -35,17 +37,40 @@ class App extends Component {
   render() {
     console.log('render');
     return (
-      <div className="App">
-        <section className="header">
-          <h1>SWAPI-Box</h1>
-          <p className="favorites">View Favorites</p>
-        </section>
-        <Button handleClick={ (name) => this.fetchApi(name) }/>
-        <Film movie={this.state.films}/>
-        <CardWrapper films={this.state.selectedCategory}/>
-      </div>
+      <Router >
+        <div className="App">
+          <section className="header">
+            <h1>SWAPI-Box</h1>
+            <p className="favorites">View Favorites</p>
+          </section>
+          <Link to='/people'>people</Link>
+          <Route path='/people' render={() =>
+            <div className='card-wrapper'>
+              <PeopleCard />
+            </div>
+          }/>
+
+          <Film movie={this.state.films}/>
+        </div>
+      </Router>
     );
   }
 }
 
+/* <Link to='/home'>Home</Link>
+<Route path='/home' render={() =>
+  <section className="header">
+    <h1>SWAPI-Box</h1>
+    <p className="favorites">View Favorites</p>
+  </section>
+} /> */
 export default App;
+
+/* <div className="App">
+  <section className="header">
+    <h1>SWAPI-Box</h1>
+    <p className="favorites">View Favorites</p>
+  </section>
+  <Button handleClick={ (name) => this.fetchApi(name) }/>
+  <CardWrapper films={this.state.selectedCategory}/>
+</div> */
