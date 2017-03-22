@@ -3,7 +3,7 @@ import './App.css';
 // import CardWrapper from '../CardWrapper/CardWrapper.js'
 import Film from '../Film/Film.js';
 import Button from '../Button/Button';
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Link, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import PeopleCard from '../PeopleCard/PeopleCard.js';
 import PlanetCard from '../PlanetCard/PlanetCard.js';
 // import ObjectCleaner from '../ObjectCleaner/objectCleaner.js'
@@ -13,8 +13,9 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      selectedCategory: undefined,
-      films: undefined
+      selectedCategory: {},
+      films: undefined,
+      category: ''
     }
   }
 
@@ -23,6 +24,7 @@ class App extends Component {
   }
 
   fetchApi(name){
+    console.log('fetch api name ', name);
     if (name === 'films') {
       return fetch('http://swapi.co/api/'+name)
         .then(data => data.json())
@@ -30,29 +32,37 @@ class App extends Component {
     }
       fetch('http://swapi.co/api/'+name)
         .then(data => data.json())
-        .then(json => this.setState({selectedCategory: json}))
+        .then(json => this.setState({category: name, selectedCategory: json}))
+  }
+
+  getActiveComponent() {
+    console.log('in get active component');
+    if (this.state.category) {
+      return ( <Redirect to={{
+                  pathname: `/${this.state.category}`
+                }}/>
+              )
+    }
   }
 
   render() {
+
     return (
       <Router exact={true} path='/' >
         <div className="App">
           <section className="header">
-            <h1>SWAPI-Box</h1>
+            <h1 className='logo'>SWAPI-BOX</h1>
             <p className="favorites">View Favorites</p>
           </section>
 
-          <Link to='/people'>
-            <Button handleClick={ (name) => this.fetchApi(name) } name='people'/>
-          </Link>
 
-          <Link to='/planets'>
-            <Button handleClick={ (name) => this.fetchApi(name) } name='planets'/>
-          </Link>
+          {this.getActiveComponent()}
 
-          <Link to='/vehicles'>
-            <Button handleClick={ (name) => this.fetchApi(name) } name='vehicles'/>
-          </Link>
+          <Button handleClick={ (name) => this.fetchApi(name) } name='people'/>
+
+          <Button handleClick={ (name) => this.fetchApi(name) } name='planets'/>
+
+          <Button handleClick={ (name) => this.fetchApi(name) } name='vehicles'/>
 
           <Route path='/' render={() =>
               <div>
@@ -61,10 +71,10 @@ class App extends Component {
             }/>
 
           <Route path='/people' render={() =>
-            <div className='card-wrapper'>
-              <PeopleCard people={this.state.selectedCategory}/>
-            </div>
-          }/>
+              <div className='card-wrapper'>
+                <PeopleCard selectedCategory={this.state.selectedCategory}/>
+              </div>
+            }/>
 
           <Route path='/planet' render={() =>
             <div className='card-wrapper'>
@@ -75,6 +85,8 @@ class App extends Component {
           <Film movie={this.state.films}/>
         </div>
       </Router>
+
+
     );
   }
 }
