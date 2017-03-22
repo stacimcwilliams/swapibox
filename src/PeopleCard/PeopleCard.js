@@ -5,7 +5,7 @@ class PeopleCard extends Component {
   constructor(){
     super()
     this.state = {
-      people: {},
+      people: [],
       // planet: []
     }
   }
@@ -19,15 +19,29 @@ class PeopleCard extends Component {
   //   }
   // }
 
+  // componentWillMount() {
+  //   console.log('will mount peoplecard');
+  //   this.setState({ people: [...this.props.selectedCategory.results] })
+  // }
+
 
 
   componentWillMount() {
     console.log('will mount peoplecard');
-    this.setState({ people: this.props.selectedCategory.results })
+
+    let temp = []
+
+    this.props.selectedCategory.results.map(person => {
+          const result = this.fetchPlanetApi(person)
+          temp.push(result)
+        });
+
+
+    this.setState({ people: temp })
   }
 
-  fetchNestedApi(obj) {
-    let temp = [...this.state.people]
+  fetchPlanetApi(obj) {
+    let temp = {}
     let { name } = obj;
     fetch(obj.homeworld)
         .then(data => data.json())
@@ -35,12 +49,29 @@ class PeopleCard extends Component {
           let { population } = json
           let planetName = json['name']
           const personObj = { name, population, planetName }
-          temp.push(personObj)
+          Object.assign(temp, personObj)
         })
     return temp;
   }
 
+  // fetchSpeciesApi(obj) {
+  //
+  //   // species is an array
+  //   let temp = {}
+  //   let { name } = obj;
+  //   fetch(obj.homeworld)
+  //       .then(data => data.json())
+  //       .then(json => {
+  //         let { population } = json
+  //         let planetName = json['name']
+  //         const personObj = { name, population, planetName }
+  //         Object.assign(temp, personObj)
+  //       })
+  //   return temp;
+  // }
+
   render(){
+
     return (
       <div>this is a People card</div>
     )
