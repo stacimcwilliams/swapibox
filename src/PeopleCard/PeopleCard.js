@@ -5,39 +5,24 @@ class PeopleCard extends Component {
   constructor(){
     super()
     this.state = {
-      people: [],
-      // planet: []
+      people: []
     }
   }
 
-  // componentDidMount() {
-  //   if (this.state.people) {
-  //     this.state.people.results.map(person => {
-  //       const result = this.fetchNestedApi(person)
-  //       this.setState({people: result})
-  //     });
-  //   }
-  // }
-
-  // componentWillMount() {
-  //   console.log('will mount peoplecard');
-  //   this.setState({ people: [...this.props.selectedCategory.results] })
-  // }
-
-
-
   componentWillMount() {
-    console.log('will mount peoplecard');
+    const result = this.getStateObject()
+    console.log(result);
+    this.setState({ people: result })
+  }
 
+  getStateObject() {
     let temp = []
-
     this.props.selectedCategory.results.map(person => {
-          const result = this.fetchPlanetApi(person)
-          temp.push(result)
-        });
-
-
-    this.setState({ people: temp })
+      const planetResult = this.fetchPlanetApi(person)
+      const speciesResult = this.fetchSpeciesApi(person.species)
+      temp.push({ planetResult, speciesResult })
+    });
+    return temp
   }
 
   fetchPlanetApi(obj) {
@@ -54,50 +39,37 @@ class PeopleCard extends Component {
     return temp;
   }
 
-  // fetchSpeciesApi(obj) {
-  //
-  //   // species is an array
-  //   let temp = {}
-  //   let { name } = obj;
-  //   fetch(obj.homeworld)
-  //       .then(data => data.json())
-  //       .then(json => {
-  //         let { population } = json
-  //         let planetName = json['name']
-  //         const personObj = { name, population, planetName }
-  //         Object.assign(temp, personObj)
-  //       })
-  //   return temp;
-  // }
+  fetchSpeciesApi(array) {
+    const url = array[0]
+    let speciesObj = {}
+    fetch(url)
+        .then(data => data.json())
+        .then(json => {
+          let { name } = json
+          let nameObj = { 'species': name }
+          Object.assign(speciesObj, nameObj)
+        })
+    return speciesObj;
+  }
 
+  displayCard() {
+    return this.state.people.map(person => {
+      console.log(person.planetResult);
+      // return (
+      //   <div className="people-card">
+      //     <p>  { person.planetResult.name }  </p>
+      //     <button> Favorite </button>
+      //     <p>{ result.name }</p>
+      //   </div>
+      // )
+    }
+  )
+}
   render(){
-
     return (
-      <div>this is a People card</div>
+      <div> { this.displayCard() }</div>
     )
   }
 }
-
-//   return an object with the name,hometown,species and Population
-//   need to do another api call
-//   need to pass that down to people card
-
-
-// const peopleCleaner = ( people ) => {
-//   return people.results.map(person => {
-//     const result = fetchNestedApi(person.homeworld)
-//     console.log(result['name']);
-//     return (
-//         <div className="people-card">
-//         <p>  { person.name }  </p>
-//         <button> Favorite </button>
-//         <p>{ result.name }</p>
-//       </div>
-//       )
-//     }
-//   )
-// }
-
-
 
 export default PeopleCard;
