@@ -5,10 +5,10 @@ import { shallow, mount } from 'enzyme';
 
 describe('CardWrapper', ()=> {
 
-  it('', () => {
+  it('should have a className of card-wrapper', () => {
     const wrapper = shallow(<CardWrapper />)
+    expect(wrapper.find('.card-wrapper')).toHaveLength(1)
   });
 
-  it('', )
 
 })

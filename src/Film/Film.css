@@ -2,6 +2,19 @@
   display: inline-block;
   width: 25%;
   float: left;
-  background-color: slategrey;
-  height: 100vh
+  /*background-color: slategrey;*/
+  height: 100vh;
+  -moz-animation: scroll-up 20s linear;
+  -webkit-animation: scroll-up 20s linear;
+  animation: scroll-up 20s linear;
+}
+
+
+@-moz-keyframes scroll-up {
+ 0%   { -moz-transform: translateY(100%); }
+ 100% { -moz-transform: translateY(-100%); }
+}
+@-webkit-keyframes scroll-up {
+ 0%   { -webkit-transform: translateY(100%); }
+ 100% { -webkit-transform: translateY(-100%); }
 }

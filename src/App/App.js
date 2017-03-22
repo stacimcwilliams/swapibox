@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   componentDidMount(){
-    console.log('componentWillMount');
     this.fetchApi('films');
   }
 
@@ -79,6 +78,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  selectedCategory: React.PropTypes.object,
+  film: React.PropTypes.object,
+};
 
 /* <Link to='/home'>Home</Link>
 <Route path='/home' render={() =>

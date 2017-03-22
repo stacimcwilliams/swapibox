@@ -3,11 +3,11 @@ import '../CardWrapper/CardWrapper.css';
 
 const fetchNestedApi =(api) => {
   let obj = {}
-  console.log(api);
+  // console.log(api);
   fetch(api)
     .then(data => data.json())
     .then(json => Object.assign(obj, json))
-    debugger;
+
     console.log(obj);
   // return Object.assign({}, {'name':obj[name], 'population':obj[population]})
 }

@@ -15,12 +15,40 @@ describe('App', ()=> {
     expect(wrapper.find('.App').length).toBe(1)
   });
 
-  it('state should default to an empty object', () => {
+  it('state of selectedCategory should default to undefined', () => {
     const wrapper = mount(<App/>)
-    console.log(wrapper.state().data);
-    expect(wrapper.state().data).toBe({});
+    expect(wrapper.state().data).toBe(undefined);
   });
 
-  
+  it('state of films should default to undefined', () => {
+    const wrapper = mount(<App/>)
+    expect(wrapper.state().data).toBe(undefined);
+  });
+
+  it('should have a default of undefined for films and selectedCategory in state', () => {
+    const wrapper = shallow(<App/>)
+    let mockState = {
+      films: undefined,
+      selectedCategory: undefined
+    }
+    expect(wrapper.state()).toMatchObject(mockState);
+  })
+
+  it.skip('should have a function called fetchApi', () => {
+    const wrapper = mount(<App/>)
+    expect(wrapper.find(fetchApi())).toBe(true);
+  });
+
+  it.skip('should have a className of App', () => {
+    const wrapper = mount(<App/>)
+
+  });
+
+  it.skip('fetchApi should update state', () => {
+    const wrapper = mount(<App/>)
+
+  });
+
+
 
 })
