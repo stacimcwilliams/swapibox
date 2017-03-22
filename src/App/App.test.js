@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
@@ -11,16 +11,29 @@ describe('App', ()=> {
   });
 
   it('should have a className of app', () => {
-    const wrapper = shallow(<App/>)
-    expect(wrapper.find('.App').length).toBe(1)
+    const wrapper = shallow(<App/>);
+    expect(wrapper.find('.App').length).toBe(1);
   });
 
-  it('state should default to an empty object', () => {
-    const wrapper = mount(<App/>)
-    console.log(wrapper.state().data);
-    expect(wrapper.state().data).toBe({});
+  it('should have a default of undefined for films and selectedCategory in state', () => {
+    const wrapper = shallow(<App/>);
+    let mockState = {
+      films: undefined,
+      selectedCategory: {},
+      category: ''
+    }
+    expect(wrapper.state()).toMatchObject(mockState);
+  })
+
+  it.skip('should have a function called fetchApi', () => {
+    const wrapper = mount(<App/>);
+    expect(wrapper.find(fetchApi())).toBe(true);
   });
 
-  
+  it('should have a className of App', () => {
+    const wrapper = mount(<App/>);
+    expect(wrapper.find('.App').length).toBe(1);
 
-})
+  });
+
+});

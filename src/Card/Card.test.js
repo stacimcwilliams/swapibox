@@ -9,6 +9,9 @@ describe.skip('Card', ()=> {
     const wrapper = shallow(<Card />)
   });
 
-  it('', )
+  it('should return a div', () => {
+    const wrapper = shallow(<Card />)
+
+  });
 
 })

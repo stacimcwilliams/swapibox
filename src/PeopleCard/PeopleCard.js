@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../CardWrapper/CardWrapper.css';
 
+
 class PeopleCard extends Component {
   constructor(){
     super()
@@ -29,13 +30,13 @@ class PeopleCard extends Component {
     let temp = {}
     let { name } = obj;
     fetch(obj.homeworld)
-        .then(data => data.json())
-        .then(json => {
-          let { population } = json
-          let planetName = json['name']
-          const personObj = { name, population, planetName }
-          Object.assign(temp, personObj)
-        })
+    .then(data => data.json())
+    .then(json => {
+      let { population } = json
+      let planetName = json['name']
+      const personObj = { name, population, planetName }
+      Object.assign(temp, personObj)
+    })
     return temp;
   }
 

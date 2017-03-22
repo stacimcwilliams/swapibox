@@ -7,13 +7,12 @@ const Button = ({ handleClick, name }) => {
   )
 }
 
+
+Button.propTypes = {
+  
+}
+
 export default Button;
-
-
-
-
-
-
 
 // <section className="button-section">
 //   <button onClick={ () => handleClick('people') }  className="button" >People</button>

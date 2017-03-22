@@ -83,6 +83,7 @@ class App extends Component {
           }/>
 
           <Film movie={this.state.films}/>
+          <VehicleCard data={this.state.selectedCategory}/>
         </div>
       </Router>
 
@@ -90,6 +91,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  selectedCategory: React.PropTypes.object,
+  film: React.PropTypes.object,
+};
 
 /* <Link to='/home'>Home</Link>
 <Route path='/home' render={() =>
