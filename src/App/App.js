@@ -39,7 +39,7 @@ class App extends Component {
       <Router exact={true} path='/' >
         <div className="App">
           <section className="header">
-            <h1>SWAPI-Box</h1>
+            <h1 className='logo'>SWAPI-BOX</h1>
             <p className="favorites">View Favorites</p>
           </section>
 
