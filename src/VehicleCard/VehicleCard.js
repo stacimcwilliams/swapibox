@@ -1,0 +1,1 @@
+import '../CardWrapper/CardWrapper.css';

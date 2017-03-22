@@ -11,6 +11,7 @@ const randomQuote = (movie) => {
 }
 
 const Film = ({ movie }) => {
+  console.log(movie);
   if (movie) {
     const randomMovie = randomQuote(movie)
     return(
