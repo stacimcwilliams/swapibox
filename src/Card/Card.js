@@ -9,7 +9,6 @@ const Card = () => {
 export default Card;
 
 
-// people (name= hometown= species= language= population=)
 // Planet Cards:
 // Name
 // Terrain
