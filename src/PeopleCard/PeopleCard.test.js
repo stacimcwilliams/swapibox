@@ -11,8 +11,14 @@ describe('PeopleCard', ()=> {
   });
 
   it.skip('should have a function called peopleCleaner', () => {
-    const wrapper = shallow(<PeopleCard />)
+    const wrapper = shallow(<PeopleCard />);
     expect(wrapper.find())
   });
+
+  it.skip('starts with a state of people as an empty array', () => {
+    const wrapper = shallow (<PeopleCard/>);
+    expect(wrapper.state('people')).toBe([]);
+  })
+
 
 })

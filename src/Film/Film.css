@@ -2,6 +2,7 @@
   display: inline-block;
   width: 25%;
   float: left;
+  color: white;
   /*background-color: slategrey;*/
   height: 100vh;
   -moz-animation: scroll-up 20s linear;

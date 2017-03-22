@@ -5,14 +5,8 @@ import { shallow, mount } from 'enzyme';
 
 describe('Film', ()=> {
 
-  it('should return a div', () => {
+  it.skip('should return a div with a className random-film', () => {
     const wrapper = shallow(<Film />)
-
+    expect(wrapper.find('.random-film').length).toBe(1);
   });
-
-  it('should have a function called randomQuote', () => {
-    const wrapper = shallow(<Film />)
-
-  });
-
-})
+});

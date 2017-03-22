@@ -57,7 +57,7 @@ class PeopleCard extends Component {
   render(){
 
     return (
-      <div>this is a People card</div>
+      <div className="people-section" >this is a People card</div>
     )
   }
 }

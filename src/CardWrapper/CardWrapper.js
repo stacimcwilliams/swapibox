@@ -4,6 +4,7 @@ import Card from '../Card/Card.js'
 
 
 const categoryCheck = (props) => {
+  console.log(props);
   // return !props ? <div>Select a Category</div> : <Card />
 }
 

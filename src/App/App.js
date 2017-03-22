@@ -83,6 +83,7 @@ class App extends Component {
           }/>
 
           <Film movie={this.state.films}/>
+          <VehicleCard data={this.state.selectedCategory}/>
         </div>
       </Router>
 
