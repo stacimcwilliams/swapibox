@@ -15,6 +15,9 @@ class PeopleCard extends Component {
     console.log(result);
     this.setState({ people: result })
   }
+// call two functions get plantet/homeworld and get speciesResult
+//in each function make
+// set two states homewrld and species
 
   getStateObject() {
     let temp = []

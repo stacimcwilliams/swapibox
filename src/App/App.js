@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-// import CardWrapper from '../CardWrapper/CardWrapper.js'
+import CardWrapper from '../CardWrapper/CardWrapper.js'
 import Film from '../Film/Film.js';
 import Button from '../Button/Button';
 import { Link, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import PeopleCard from '../PeopleCard/PeopleCard.js';
 import PlanetCard from '../PlanetCard/PlanetCard.js';
+import VehicleCard from '../VehicleCard/VehicleCard.js'
 // import ObjectCleaner from '../ObjectCleaner/objectCleaner.js'
 
 
@@ -78,12 +79,17 @@ class App extends Component {
 
           <Route path='/planet' render={() =>
             <div className='card-wrapper'>
-              <PlanetCard />
+              <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
+            </div>
+          }/>
+
+          <Route path='/vehicles' render={() =>
+            <div className='card-wrapper'>
+              <CardWrapper data={this.state.selectedCategory.results} category={this.state.category}/>
             </div>
           }/>
 
           <Film movie={this.state.films}/>
-          <VehicleCard data={this.state.selectedCategory}/>
         </div>
       </Router>
 
