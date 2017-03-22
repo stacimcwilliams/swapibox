@@ -1,61 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../CardWrapper/CardWrapper.css';
 
-const PeopleCard = ({ people }) => {
-  if(people) {
-    // const randomPerson = peopleCleaner(people)
+class PeopleCard extends Component {
+  constructor(){
+    super()
+    this.state = {
+      people: {},
+      // planet: []
+    }
+  }
+
+  // componentDidMount() {
+  //   if (this.state.people) {
+  //     this.state.people.results.map(person => {
+  //       const result = this.fetchNestedApi(person)
+  //       this.setState({people: result})
+  //     });
+  //   }
+  // }
+
+
+
+  componentWillMount() {
+    console.log('will mount peoplecard');
+    this.setState({ people: this.props.selectedCategory.results })
+  }
+
+  fetchNestedApi(obj) {
+    let temp = [...this.state.people]
+    let { name } = obj;
+    fetch(obj.homeworld)
+        .then(data => data.json())
+        .then(json => {
+          let { population } = json
+          let planetName = json['name']
+          const personObj = { name, population, planetName }
+          temp.push(personObj)
+        })
+    return temp;
+  }
+
+  render(){
     return (
-      <div className="people-section">
-        { peopleCleaner(people) }
-        This is a People card
-
-      </div>
+      <div>this is a People card</div>
     )
-
-  } else {
-    return <div></div>
   }
 }
 
-
-
-const fetchNestedApi =(api) => {
-  let obj = {}
-  fetch(api)
-    .then(data => data.json())
-    .then(json => {
-      let { name, population } = json
-      const planetName = { name, population }
-      Object.assign(obj, planetName)
-    })
-  return obj
-}
-// console.log(obj);
 //   return an object with the name,hometown,species and Population
 //   need to do another api call
 //   need to pass that down to people card
 
-const peopleCleaner = ( people ) => {
-  return people.results.map(person => {
-    const result = fetchNestedApi(person.homeworld)
-    console.log(result['name']);
-    return (
-        <div className="people-card">
-        <p>  { person.name }  </p>
-        <button> Favorite </button>
-        <p>{ result.name }</p>
-      </div>
-      )
-    }
-  )
-}
+
+// const peopleCleaner = ( people ) => {
+//   return people.results.map(person => {
+//     const result = fetchNestedApi(person.homeworld)
+//     console.log(result['name']);
+//     return (
+//         <div className="people-card">
+//         <p>  { person.name }  </p>
+//         <button> Favorite </button>
+//         <p>{ result.name }</p>
+//       </div>
+//       )
+//     }
+//   )
+// }
 
 
 
 export default PeopleCard;
-
-
-
-// people (name= hometown= species= population=) button for favorites
-// need to another api call for species , name
-//need another api call for hometown which retreives population and hometown(name and population )
