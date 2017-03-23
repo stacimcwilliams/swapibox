@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../CardWrapper/CardWrapper.css';
-import '../PlanetCard/Card.css';
+import '../Card.css';
 
 
 

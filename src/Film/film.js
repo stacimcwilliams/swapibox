@@ -25,4 +25,11 @@ const Film = ({ movie }) => {
   }
 }
 
+Film.propTypes = {
+  movie: React.PropTypes.object,
+}
+
+
+
+
 export default Film;

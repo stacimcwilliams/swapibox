@@ -36,11 +36,11 @@ describe('App', ()=> {
     const wrapper = mount(<App/>);
     expect(wrapper.find('.App').length).toBe(1);
   });
-
-  it('should update state onClick for category', () => {
-    const wrapper = mount(<App/>);
-
-  });
+  // 
+  // it('should update state onClick for category', () => {
+  //   const wrapper = mount(<App/>);
+  //
+  // });
 
   it('App instaniates three buttons', () => {
     const wrapper = mount(<App/>)
