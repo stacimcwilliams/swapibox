@@ -79,7 +79,7 @@ render() {
 
       <Route path='/people' render={() =>
         <div className='card-wrapper'>
-          <PeopleCard selectedCategory={this.state.selectedCategory}/>
+          <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
         </div>
       }/>
 
@@ -97,12 +97,11 @@ render() {
         </div>
       }/>
 
-      <Film movie={this.state.films}/>
     </div>
   </Router>
 
-);
-}
+  );
+  }
 }
 // <Film movie={this.state.films}/>
 
@@ -112,4 +111,3 @@ App.propTypes = {
 };
 
 export default App;
-
