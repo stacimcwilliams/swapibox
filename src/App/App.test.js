@@ -5,13 +5,12 @@ import { shallow, mount } from 'enzyme';
 
 describe('App', ()=> {
 
-
   it('should have a className of app', () => {
     const wrapper = shallow(<App/>);
     expect(wrapper.find('.App').length).toBe(1);
   });
 
-  it.only('should have a default of undefined for films and selectedCategory in state', () => {
+  it('should have a default of undefined for films and selectedCategory in state', () => {
     const wrapper = shallow(<App/>);
     let mockState = {
       films: undefined,
