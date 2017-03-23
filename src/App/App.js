@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardWrapper from '../CardWrapper/CardWrapper.js'
-import Film from '../Film/Film.js';
+// import Film from '../Film/Film.js';
 import Button from '../Button/Button';
 import { Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
-import PeopleCard from '../PeopleCard/PeopleCard.js';
-import PlanetCard from '../PlanetCard/PlanetCard.js';
-
-import VehicleCard from '../VehicleCard/VehicleCard.js'
-
+// import PeopleCard from '../PeopleCard/PeopleCard.js';
+// import PlanetCard from '../PlanetCard/PlanetCard.js';
+//
+// import VehicleCard from '../VehicleCard/VehicleCard.js'
 
 
 
@@ -75,7 +74,7 @@ class App extends Component {
 
           <Route path='/people' render={() =>
               <div className='card-wrapper'>
-                <PeopleCard selectedCategory={this.state.selectedCategory}/>
+                <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
               </div>
             }/>
 
@@ -93,7 +92,6 @@ class App extends Component {
 
 
 
-          <Film movie={this.state.films}/>
         </div>
       </Router>
 
@@ -101,32 +99,11 @@ class App extends Component {
     );
   }
 }
+// <Film movie={this.state.films}/>
 
 App.propTypes = {
   selectedCategory: React.PropTypes.object,
   film: React.PropTypes.object,
 };
 
-// <Route path='/vehicle' render={() =>
-//     <div className='card-wrapper'>
-//       <VehicleCard data={this.state.selectedCategory}/>
-//     </div>
-//   }/>
-
-/* <Link to='/home'>Home</Link>
-<Route path='/home' render={() =>
-  <section className="header">
-    <h1>SWAPI-Box</h1>
-    <p className="favorites">View Favorites</p>
-  </section>
-} /> */
 export default App;
-
-/* <div className="App">
-  <section className="header">
-    <h1>SWAPI-Box</h1>
-    <p className="favorites">View Favorites</p>
-  </section>
-  <Button handleClick={ (name) => this.fetchApi(name) }/>
-  <CardWrapper films={this.state.selectedCategory}/>
-</div> */
