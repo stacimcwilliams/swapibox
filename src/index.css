@@ -5,9 +5,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #C0C0C0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-image: url("../trooper.jpg");
+  background-position: fixed;
   background-size: cover;
   repeat: no-repeat;
 }

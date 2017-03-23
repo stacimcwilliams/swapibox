@@ -33,21 +33,19 @@ const fetchSpeciesApi = (array) => {
 }
 
 const getStateObject = (data) => {
-  let temp = []
   let planetResult = {}
   let speciesResult = {}
-  data.map(person => {
-    const planetResult = fetchPlanetApi(person)
-    const speciesResult = fetchSpeciesApi(person.species)
-    temp.push({planetResult, speciesResult})
+  return data.map(person => {
+    planetResult = fetchPlanetApi(person)
+    speciesResult = fetchSpeciesApi(person.species)
+    return {planetResult, speciesResult}
   });
-  return temp
 }
 
 
 const cardGenerator = (data, category) => {
   if (category === "planets") {
-    return data.map((category, index) => <PlanetCard key={index} data={category} />)
+    return data.map((planet, index) => <PlanetCard key={index} data={planet} />)
    } else if (category === "vehicles") {
      return data.map((vehicle, index) => <VehicleCard key={index} data={ vehicle }/>)
    } else if (category === "people") {
@@ -61,11 +59,9 @@ const cardGenerator = (data, category) => {
 
 const CardWrapper = ( { data, category } ) => {
   console.log('woot')
-  let tim = cardGenerator(data, category)
-  console.log(tim, 'tim')
   return (
     <div className="card-wrapper">
-      {tim}
+      {cardGenerator(data, category)}
     </div>
   )
 }

@@ -44,15 +44,15 @@ class App extends Component {
 
   }
 
-  getActiveComponent() {
-    console.log('in get active component');
-    if (this.state.category) {
-      return ( <Redirect to={{
-        pathname: `/${this.state.category}`
-      }}/>
-    )
-  }
-}
+//   getActiveComponent() {
+//     console.log('in get active component');
+//     if (this.state.category) {
+//       return ( <Redirect to={{
+//         pathname: `/${this.state.category}`
+//       }}/>
+//     )
+//   }
+// }
 
 render() {
 
@@ -88,7 +88,7 @@ render() {
       }
       }/>
 
-      <Route path='/planet' render={() => {
+    <Route path='/planets' render={() => {
         console.log('what laskdfj');
         return(<div className='card-wrapper'>
           <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
