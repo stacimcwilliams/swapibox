@@ -4,15 +4,12 @@ import Card from '../Card/Card.js'
 import VehicleCard from '../VehicleCard/VehicleCard.js'
 import PlanetCard from '../PlanetCard/PlanetCard.js'
 
-
-
-
 const planetMap = (data) => {
   return data.map((planet, index) => {
     return(<PlanetCard key={index}
                       data={planet} />
           )
-  })
+  });
 }
 
 const vehiclesMap = (data) => {
@@ -20,7 +17,7 @@ const vehiclesMap = (data) => {
    return (<VehicleCard key={index}
                          data={ vehicle }/>
           )
- })
+ });
  }
 
 const getCards = (data, category) => {
@@ -33,10 +30,6 @@ const getCards = (data, category) => {
   }
 }
 
-{/* // const categoryCheck = (props) =>
-//   console.log(props);
-//   // return !props ? <div>Select a Category</div> : <Card />
-// } */}
 
 const CardWrapper = ( { data, category } ) => {
   return (

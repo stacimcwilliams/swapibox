@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Poller One', cursive;
 }
 
 .App-header {
@@ -31,4 +32,18 @@
 .button{
   margin: 50px;
   background-color: grey;
+  border: 3px solid #FFD700;
+  font-family: 'Poller One', cursive;
+  opacity: .7;
+}
+
+.logo{
+  color: grey;
+  font-size: 45px;
+}
+
+.select-category{
+  color: grey;
+  font-size: 25px;
+  text-align: center;
 }

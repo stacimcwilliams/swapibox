@@ -23,18 +23,13 @@ describe('App', ()=> {
   })
 
   it('fetchApi should setState on componentDidMount', () => {
-
-    console.log(fakeCall);
     const wrapper = mount(<App />);
     let mockState = {
       films: undefined,
       selectedCategory: {},
       category: ''
     }
-
     expect(wrapper.state()).toMatchObject(mockState);
-
-    expect(wrapper.find(fetchApi())).toBe(true);
   });
 
   it('should have a className of App', () => {
