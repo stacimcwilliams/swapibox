@@ -1,13 +1,13 @@
 
 import React from 'react';
-import './PlanetCard.css';
+import './Card.css';
 
 
 const PlanetCard = ( {data} ) => {
   console.log(data);
   return (
-    <div className="planet-card">
-      <p className="planet-name">{data.name}</p>
+    <div className="card">
+      <p className="name">{data.name}</p>
       <p className="planet-terrain">{data.terrain}</p>
       <p className="planet-population">{data.population}</p>
       <p className="planet-climate">{data.climate}</p>
