@@ -37,4 +37,11 @@ describe('App', ()=> {
     expect(wrapper.find('.App').length).toBe(1);
   });
 
+  it('should update state onClick for category', () => {
+    const wrapper = mount(<App/>);
+
+    console.log(wrapper.debug());
+
+  })
+
 });
