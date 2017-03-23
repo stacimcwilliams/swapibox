@@ -49,17 +49,22 @@ const cardGenerator = (data, category) => {
    } else if (category === "vehicles") {
      return data.map((vehicle, index) => <VehicleCard key={index} data={ vehicle }/>)
    } else if (category === "people") {
+     console.log('ya', data)
       const stateObject = getStateObject(data)
+      // const stateObject = []
+      console.log(stateObject)
       return stateObject.map((person, index) => <PeopleCard key={index} data={ person }/>)
   }
 }
 
 
 const CardWrapper = ( { data, category } ) => {
-  // debugger
+  console.log('woot')
+  let tim = cardGenerator(data, category)
+  console.log(tim, 'tim')
   return (
     <div className="card-wrapper">
-      { cardGenerator(data, category) }
+      {tim}
     </div>
   )
 }

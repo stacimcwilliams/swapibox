@@ -1,16 +1,17 @@
-import React from 'react';
+import React from 'react'
 import './Button.css'
+import { Link } from 'react-router-dom'
 
 const Button = ({ handleClick, name }) => {
   return (
-    <button onClick={ () => handleClick(name) }  className="button">{ name }</button>
+    <Link to={`/${name}`} ><button onClick={ () => handleClick(name) }  className="button">{ name }</button></Link>
   )
 }
 
 
-Button.propTypes = {
-  
-}
+// Button.propTypes = {
+//
+// }
 
 export default Button;
 
