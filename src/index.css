@@ -1,8 +1,4 @@
 
-@font-face {
-  font-family: 'Jedi';
-  src: url('../boba-fonts_star-jedi/Star_Jedi_Rounded.ttf')  format('truetype'), /* Safari, Android, iOS */
-}
 
 body {
   font-family: 'Jedi';

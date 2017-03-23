@@ -10,7 +10,7 @@ class PeopleCard extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const result = this.getStateObject()
     console.log(result);
     this.setState({ people: result })
@@ -33,13 +33,13 @@ class PeopleCard extends Component {
     let temp = {}
     let { name } = obj;
     fetch(obj.homeworld)
-    .then(data => data.json())
-    .then(json => {
-      let { population } = json
-      let planetName = json['name']
-      const personObj = { name, population, planetName }
-      Object.assign(temp, personObj)
-    })
+        .then(data => data.json())
+        .then(json => {
+          let { population } = json
+          let planetName = json['name']
+          const personObj = { name, population, planetName }
+          Object.assign(temp, personObj)
+        })
     return temp;
   }
 
@@ -59,13 +59,16 @@ class PeopleCard extends Component {
   displayCard() {
     return this.state.people.map(person => {
       console.log(person.planetResult);
-      // return (
-      //   <div className="people-card">
-      //     <p>  { person.planetResult.name }  </p>
-      //     <button> Favorite </button>
-      //     <p>{ result.name }</p>
-      //   </div>
-      // )
+      console.log(person.planetResult.name);
+      return (
+        <div className="people-card">
+          <button> Favorite </button>
+          <p>  { person.planetResult.name }  </p>
+          <p>{ person.planetResult.planetName }</p>
+          <p>{ person.planetResult.population }</p>
+          <p>  { person.speciesResult.species }  </p>
+        </div>
+      )
     }
   )
 }

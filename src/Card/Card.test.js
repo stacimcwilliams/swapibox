@@ -5,11 +5,11 @@ import { shallow, mount } from 'enzyme';
 
 describe.skip('Card', ()=> {
 
-  it('renders without crashing', () => {
+  it.skip('renders without crashing', () => {
     const wrapper = shallow(<Card />)
   });
 
-  it('should return a div', () => {
+  it.skip('should return a div', () => {
     const wrapper = shallow(<Card />)
 
   });
