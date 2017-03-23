@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       selectedCategory: {},
       films: undefined,
-      category: ''
+      category: '',
+      favorites: []
     }
   }
 

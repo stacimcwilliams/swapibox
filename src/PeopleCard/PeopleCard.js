@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../CardWrapper/CardWrapper.css';
 import '../Card.css';
 
 

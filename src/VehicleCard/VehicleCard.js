@@ -1,5 +1,4 @@
 import React from 'react';
-import './VehicleCard.css';
 import '../Card.css';
 
 const VehicleCard = ( {data} ) => {
