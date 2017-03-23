@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Film from './Film';
 import { shallow, mount } from 'enzyme';
 
-describe.skip('Film', ()=> {
+describe('Film', ()=> {
 
   it('should return a div with a className random-film', () => {
     const wrapper = shallow(<Film/>)

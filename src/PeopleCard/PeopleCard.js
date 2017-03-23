@@ -38,7 +38,7 @@ class PeopleCard extends Component {
       return this.displayCard()
     }
     return (
-      <p> Loading </p>
+      <p> ...Loading </p>
     )
   }
 }
