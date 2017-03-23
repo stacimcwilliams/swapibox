@@ -3,10 +3,10 @@ import './App.css';
 // import CardWrapper from '../CardWrapper/CardWrapper.js'
 import Film from '../Film/Film.js';
 import Button from '../Button/Button';
-import { Link, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import PeopleCard from '../PeopleCard/PeopleCard.js';
 import PlanetCard from '../PlanetCard/PlanetCard.js';
-// import ObjectCleaner from '../ObjectCleaner/objectCleaner.js'
+// import VehicleCard from '../VehicleCard/VehicleCard.js';
 
 
 class App extends Component {
@@ -82,8 +82,9 @@ class App extends Component {
             </div>
           }/>
 
+
+
           <Film movie={this.state.films}/>
-          <VehicleCard data={this.state.selectedCategory}/>
         </div>
       </Router>
 
@@ -96,6 +97,12 @@ App.propTypes = {
   selectedCategory: React.PropTypes.object,
   film: React.PropTypes.object,
 };
+
+// <Route path='/vehicle' render={() =>
+//     <div className='card-wrapper'>
+//       <VehicleCard data={this.state.selectedCategory}/>
+//     </div>
+//   }/>
 
 /* <Link to='/home'>Home</Link>
 <Route path='/home' render={() =>

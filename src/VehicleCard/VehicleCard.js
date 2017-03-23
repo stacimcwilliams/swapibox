@@ -8,7 +8,7 @@ const VehicleCard = (props) => {
       <p className="vehicle-name"></p>
       <p className="vehicle-model"></p>
       <p classNAme="vehicle-class"></p>
-      <p className="vehicle-passengers"</p>
+      <p className="vehicle-passengers"></p>
     </div>
   )
 }
