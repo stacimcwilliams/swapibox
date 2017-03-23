@@ -29,7 +29,4 @@ Film.propTypes = {
   movie: React.PropTypes.object,
 }
 
-
-
-
 export default Film;
