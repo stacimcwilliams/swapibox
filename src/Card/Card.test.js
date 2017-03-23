@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import Card from './Card';
 import { shallow, mount } from 'enzyme';
 
-describe.skip('Card', ()=> {
+describe('Card', ()=> {
 
-  it.skip('renders without crashing', () => {
+  it('renders without crashing', () => {
     const wrapper = shallow(<Card />)
   });
 
-  it.skip('should return a div', () => {
+  it('should return a div', () => {
     const wrapper = shallow(<Card />)
-
+    expect(wrapper.find('.individual-card').length).toBe(1)
   });
 
 })

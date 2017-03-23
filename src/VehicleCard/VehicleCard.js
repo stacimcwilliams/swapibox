@@ -18,5 +18,3 @@ const VehicleCard = ( {data} ) => {
 
 
 export default VehicleCard;
-
-
