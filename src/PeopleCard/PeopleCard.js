@@ -12,7 +12,12 @@ class PeopleCard extends Component {
 
   componentDidMount() {
     this.setState({ people: this.props })
+    setTimeout(()=> {
+      this.setState({ people: this.props })
+    }, 3000)
   }
+
+
 
 //   displayCard() {
 //     return this.state.people.map(person => {
