@@ -5,7 +5,6 @@ import { shallow, mount } from 'enzyme';
 
 describe('App', ()=> {
 
-
   it('should have a className of app', () => {
     const wrapper = shallow(<App/>);
     expect(wrapper.find('.App').length).toBe(1);
