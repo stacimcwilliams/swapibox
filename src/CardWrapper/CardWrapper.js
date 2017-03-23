@@ -5,7 +5,6 @@ import VehicleCard from '../VehicleCard/VehicleCard.js'
 import PlanetCard from '../PlanetCard/PlanetCard.js'
 import PeopleCard from '../PeopleCard/PeopleCard.js'
 
-
 const fetchPlanetApi = (obj) => {
   let planetObject = {}
   let { name } = obj;
