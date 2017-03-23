@@ -45,10 +45,10 @@ const cardGenerator = (data, category) => {
   if (category === "planets") {
     return data.map((planet, index) => <PlanetCard key={index} data={planet} />)
    } else if (category === "vehicles") {
-     return data.map((vehicle, index) => <VehicleCard key={index} data={ vehicle }/>)
+     return data.map((vehicle, index) => <VehicleCard key={index} data={vehicle}/>)
    } else if (category === "people") {
       const stateObject = getStateObject(data)
-      return stateObject.map((person, index) => <PeopleCard key={index} data={ person }/>)
+      return stateObject.map((person, index) => <PeopleCard key={index} data={person}/>)
   }
 }
 
