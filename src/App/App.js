@@ -79,6 +79,7 @@ render() {
         </div>
       }/>
 
+
       <Route path='/people' render={() => {
         console.log('wooas;dlkfjt')
         return(<div className='card-wrapper'>
@@ -105,8 +106,8 @@ render() {
     </div>
   </Router>
 
-);
-}
+  );
+  }
 }
 // <Film movie={this.state.films}/>
 
@@ -116,6 +117,3 @@ App.propTypes = {
 };
 
 export default App;
-
-
-{/* <Film movie={this.state.films}/> */}
