@@ -16,7 +16,7 @@ const fetchPlanetApi = (obj) => {
           let planetName = json['name']
           const personObj = { name, population, planetName }
           Object.assign(planetObject, personObj)
-        })
+        }).catch((error) => console.log(error))
   return planetObject;
 }
 
@@ -29,7 +29,7 @@ const fetchSpeciesApi = (array) => {
         let { name } = json
         let nameObj = { 'species': name }
         Object.assign(speciesObj, nameObj)
-      })
+      }).catch((error) => console.log(error))
   return speciesObj;
 }
 

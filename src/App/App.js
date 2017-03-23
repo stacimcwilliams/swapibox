@@ -35,6 +35,7 @@ class App extends Component {
       fetch('http://swapi.co/api/'+name)
         .then(data => data.json())
         .then(json => this.setState({category: name, selectedCategory: json}))
+        .catch((error)=> console.log(error))
   }
 
   getActiveComponent() {
