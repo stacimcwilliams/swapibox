@@ -18,7 +18,10 @@
   color: #797979;
 }
 
-
+.favorites:hover {
+  color: gold;
+  cursor: pointer;
+}
 .logo{
   font-size: large;
   color: black;

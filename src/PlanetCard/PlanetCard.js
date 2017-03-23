@@ -13,12 +13,12 @@ const PlanetCard = ( {data} ) => {
   )
 }
 
+
 PlanetCard.propTypes = {
   name: React.PropTypes.string,
   terrain: React.PropTypes.string,
   population: React.PropTypes.string,
   climate: React.PropTypes.string,
 };
-
 
 export default PlanetCard;

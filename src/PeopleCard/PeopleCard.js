@@ -18,8 +18,6 @@ class PeopleCard extends Component {
     }, 3000)
   }
 
-
-
   displayCard() {
     const { planetResult, speciesResult } = this.state.people.data
       return (

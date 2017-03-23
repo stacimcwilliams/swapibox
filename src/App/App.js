@@ -33,7 +33,6 @@ class App extends Component {
       .then(json => this.setState({category: name, selectedCategory: json}))
       .catch((error)=> {console.log(error)
       })
-
   }
 
 render() {
