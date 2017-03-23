@@ -1,15 +1,15 @@
 .random-film{
+  z-index: -1;
+  font-size: 12px;
   display: inline-block;
-  width: 25%;
-  float: left;
+  width: 59%;
   color: white;
-  /*background-color: slategrey;*/
-  height: 100vh;
-  /*-moz-animation: scroll-up 20s linear;
   -webkit-animation: scroll-up 20s linear;
-  animation: scroll-up 20s linear;*/
+  animation: scroll-up 20s linear;
+  position: absolute;
+  right: 20%;
 }
-/*
+
 @-moz-keyframes scroll-up {
  0%   { -moz-transform: translateY(100%); }
  100% { -moz-transform: translateY(-100%); }
@@ -17,4 +17,4 @@
 @-webkit-keyframes scroll-up {
  0%   { -webkit-transform: translateY(100%); }
  100% { -webkit-transform: translateY(-100%); }
-}*/
+}
