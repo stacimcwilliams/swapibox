@@ -24,7 +24,8 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.fetchApi('films');
+    <Redirect to='/' />
+    // this.fetchApi('films');
   }
 
   fetchApi(name){
@@ -35,10 +36,11 @@ class App extends Component {
       .then(json => this.setState({films: json}))
     }
 
-      fetch('http://swapi.co/api/'+name)
-        .then(data => data.json())
-        .then(json => this.setState({category: name, selectedCategory: json}))
-        .catch((error)=> console.log(error))
+    fetch('http://swapi.co/api/'+name)
+      .then(data => data.json())
+      .then(json => this.setState({category: name, selectedCategory: json}))
+      .catch((error)=> {console.log(error)
+      })
 
   }
 
@@ -55,7 +57,7 @@ class App extends Component {
 render() {
 
   return (
-    <Router exact={true} path='/' >
+    <Router >
     <div className="App">
       <section className="header">
         <h1 className='logo'>SWAPI-BOX</h1>
@@ -63,7 +65,7 @@ render() {
       </section>
 
 
-      {this.getActiveComponent()}
+
 
       <Button handleClick={ (name) => this.fetchApi(name) } name='people'/>
 
@@ -77,17 +79,21 @@ render() {
         </div>
       }/>
 
-      <Route path='/people' render={() =>
-        <div className='card-wrapper'>
-          <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
-        </div>
+
+      <Route path='/people' render={() => {
+        console.log('wooas;dlkfjt')
+        return(<div className='card-wrapper'>
+          <CardWrapper data={this.state.selectedCategory.results} category={this.state.category}/>
+        </div> )
+      }
       }/>
 
-      <Route path='/planet' render={() =>
-        <div className='card-wrapper'>
+      <Route path='/planet' render={() => {
+        console.log('what laskdfj');
+        return(<div className='card-wrapper'>
           <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
-        </div>
-      }/>
+        </div>)
+      }}/>
 
 
       <Route path='/vehicles' render={() =>
