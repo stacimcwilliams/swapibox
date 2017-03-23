@@ -27,7 +27,6 @@ class App extends Component {
       .then(data => data.json())
       .then(json => this.setState({films: json}))
     }
-
     fetch('http://swapi.co/api/'+name)
     .then(data => data.json())
     .then(json => this.setState({category: name, selectedCategory: json}))

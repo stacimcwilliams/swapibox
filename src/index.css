@@ -9,7 +9,7 @@ html {
   padding: 0;
   background-color: black;
   background-position: -8px 95px;
-  height: 100%;
+  /*height: 100%;*/
   width: 100%;
   background-image: url("../trooper.jpg");
   background-attachment: fixed;
