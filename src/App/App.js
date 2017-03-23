@@ -5,14 +5,6 @@ import CardWrapper from '../CardWrapper/CardWrapper.js'
 import Button from '../Button/Button';
 import { Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
-// import PeopleCard from '../PeopleCard/PeopleCard.js';
-// import PlanetCard from '../PlanetCard/PlanetCard.js';
-//
-// import VehicleCard from '../VehicleCard/VehicleCard.js'
-
-
-
-
 class App extends Component {
   constructor(){
     super()
@@ -44,16 +36,6 @@ class App extends Component {
 
   }
 
-//   getActiveComponent() {
-//     console.log('in get active component');
-//     if (this.state.category) {
-//       return ( <Redirect to={{
-//         pathname: `/${this.state.category}`
-//       }}/>
-//     )
-//   }
-// }
-
 render() {
 
   return (
@@ -64,13 +46,8 @@ render() {
         <p className="favorites">View Favorites</p>
       </section>
 
-
-
-
       <Button handleClick={ (name) => this.fetchApi(name) } name='people'/>
-
       <Button handleClick={ (name) => this.fetchApi(name) } name='planets'/>
-
       <Button handleClick={ (name) => this.fetchApi(name) } name='vehicles'/>
 
       <Route path='/' render={() =>
@@ -81,31 +58,26 @@ render() {
 
 
       <Route path='/people' render={() => {
-        console.log('wooas;dlkfjt')
-        return(<div className='card-wrapper'>
+        return(<div>
           <CardWrapper data={this.state.selectedCategory.results} category={this.state.category}/>
         </div> )
       }
       }/>
 
-    <Route path='/planets' render={() => {
-        console.log('what laskdfj');
-        return(<div className='card-wrapper'>
+      <Route path='/planets' render={() => {
+        return(<div>
           <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
         </div>)
       }}/>
 
-
       <Route path='/vehicles' render={() =>
-        <div className='card-wrapper'>
+        <div>
           <CardWrapper data={this.state.selectedCategory.results} category={this.state.category}/>
-
         </div>
       }/>
 
     </div>
   </Router>
-
   );
   }
 }

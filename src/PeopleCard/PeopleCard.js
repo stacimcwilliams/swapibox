@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../CardWrapper/CardWrapper.css';
+import '../PlanetCard/Card.css';
+
 
 
 class PeopleCard extends Component {
@@ -22,12 +24,12 @@ class PeopleCard extends Component {
   displayCard() {
     const { planetResult, speciesResult } = this.state.people.data
       return (
-        <div className="people-card">
-          <button> Favorite </button>
-          <p>  { planetResult.name }  </p>
+        <div className="card">
+          <p className="name">  { planetResult.name }  </p>
           <p>{ planetResult.planetName }</p>
           <p>{ planetResult.population }</p>
           <p>  { speciesResult.species }  </p>
+          <button className="favorite"> Favorite </button>
         </div>
       )
     }
