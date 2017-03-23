@@ -1,6 +1,5 @@
 import React from 'react';
 import './CardWrapper.css';
-// import Card from '../Card/Card.js'
 import VehicleCard from '../VehicleCard/VehicleCard.js'
 import PlanetCard from '../PlanetCard/PlanetCard.js'
 import PeopleCard from '../PeopleCard/PeopleCard.js'
@@ -42,30 +41,23 @@ const getStateObject = (data) => {
   });
 }
 
-
 const cardGenerator = (data, category) => {
   if (category === "planets") {
     return data.map((planet, index) => <PlanetCard key={index} data={planet} />)
    } else if (category === "vehicles") {
-     return data.map((vehicle, index) => <VehicleCard key={index} data={ vehicle }/>)
+     return data.map((vehicle, index) => <VehicleCard key={index} data={vehicle}/>)
    } else if (category === "people") {
-     console.log('ya', data)
       const stateObject = getStateObject(data)
-      console.log(stateObject)
-      return stateObject.map((person, index) => <PeopleCard key={index} data={ person }/>)
+      return stateObject.map((person, index) => <PeopleCard key={index} data={person}/>)
   }
 }
 
-
 const CardWrapper = ( { data, category } ) => {
-  console.log('woot')
   return (
     <div className="card-wrapper">
       {cardGenerator(data, category)}
     </div>
   )
 }
-
-
 
 export default CardWrapper;

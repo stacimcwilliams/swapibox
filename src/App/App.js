@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardWrapper from '../CardWrapper/CardWrapper.js'
-// import Film from '../Film/Film.js';
+import Film from '../Film/Film.js';
 import Button from '../Button/Button';
 import { Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
@@ -17,11 +17,10 @@ class App extends Component {
 
   componentDidMount(){
     <Redirect to='/' />
-    // this.fetchApi('films');
+    this.fetchApi('films');
   }
 
   fetchApi(name){
-    console.log('fetch api name ', name);
     if (name === 'films') {
       return fetch('http://swapi.co/api/'+name)
       .then(data => data.json())
@@ -33,7 +32,6 @@ class App extends Component {
       .then(json => this.setState({category: name, selectedCategory: json}))
       .catch((error)=> {console.log(error)
       })
-
   }
 
 render() {
@@ -76,12 +74,12 @@ render() {
         </div>
       }/>
 
+      <Film movie={this.state.films}/>
     </div>
   </Router>
   );
   }
 }
-// <Film movie={this.state.films}/>
 
 App.propTypes = {
   selectedCategory: React.PropTypes.object,

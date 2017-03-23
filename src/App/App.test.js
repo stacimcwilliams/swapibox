@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
-import fakeCall from '../stub.json'
 
 describe('App', ()=> {
 
@@ -12,7 +11,7 @@ describe('App', ()=> {
     expect(wrapper.find('.App').length).toBe(1);
   });
 
-  it('should have a default of undefined for films and selectedCategory in state', () => {
+  it.only('should have a default of undefined for films and selectedCategory in state', () => {
     const wrapper = shallow(<App/>);
     let mockState = {
       films: undefined,
