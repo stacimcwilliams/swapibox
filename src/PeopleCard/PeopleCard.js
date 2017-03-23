@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../CardWrapper/CardWrapper.css';
-import '../PlanetCard/Card.css';
+import '../Card.css';
 
 
 
@@ -18,8 +18,6 @@ class PeopleCard extends Component {
       this.setState({ people: this.props })
     }, 3000)
   }
-
-
 
   displayCard() {
     const { planetResult, speciesResult } = this.state.people.data
