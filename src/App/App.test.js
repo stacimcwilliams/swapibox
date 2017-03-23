@@ -37,4 +37,32 @@ describe('App', ()=> {
     expect(wrapper.find('.App').length).toBe(1);
   });
 
-});
+  it('should update state onClick for category', () => {
+    const wrapper = mount(<App/>);
+
+  });
+
+  it('App instaniates three buttons', () => {
+    const wrapper = mount(<App/>)
+    expect(wrapper.find('button').length).toEqual(3)
+
+  });
+
+  it('button should receive handleClick as a prop', () => {
+    const mock = jest.fn()
+    const wrapper = mount(<App handleClick={mock}/>)
+    expect(wrapper.props().handleClick).toBeDefined
+  });
+
+  it('cardWrapper should receive data as a prop', () => {
+    const mock = jest.fn()
+    const wrapper = mount(<App data={mock}/>)
+    expect(wrapper.props().data).toBeDefined
+  });
+
+  it('onClick should fire at the last button click', () => {
+    const mock = jest.fn()
+    const wrapper = mount(<App />)
+  })
+
+})

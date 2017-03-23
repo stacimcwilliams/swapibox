@@ -17,5 +17,12 @@ const VehicleCard = ( {data} ) => {
   )
 }
 
+VehicleCard.propTypes = {
+  name: React.PropTypes.string,
+  model: React.PropTypes.string,
+  vehicle_class: React.PropTypes.string,
+  passengers: React.PropTypes.string,
+};
+
 
 export default VehicleCard;
