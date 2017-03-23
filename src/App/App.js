@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardWrapper from '../CardWrapper/CardWrapper.js'
-import Film from '../Film/Film.js';
+// import Film from '../Film/Film.js';
 import Button from '../Button/Button';
 import { Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
-import PeopleCard from '../PeopleCard/PeopleCard.js';
-import PlanetCard from '../PlanetCard/PlanetCard.js';
-import VehicleCard from '../VehicleCard/VehicleCard.js'
+
+// import PeopleCard from '../PeopleCard/PeopleCard.js';
+// import PlanetCard from '../PlanetCard/PlanetCard.js';
+//
+// import VehicleCard from '../VehicleCard/VehicleCard.js'
 
 
 
@@ -84,9 +86,11 @@ render() {
         </div>
       }/>
 
+
       <Route path='/vehicles' render={() =>
         <div className='card-wrapper'>
           <CardWrapper data={this.state.selectedCategory.results} category={this.state.category}/>
+
         </div>
       }/>
 
@@ -97,6 +101,7 @@ render() {
 );
 }
 }
+// <Film movie={this.state.films}/>
 
 App.propTypes = {
   selectedCategory: React.PropTypes.object,
@@ -104,25 +109,4 @@ App.propTypes = {
 };
 
 export default App;
-// <Route path='/vehicle' render={() =>
-//     <div className='card-wrapper'>
-//       <VehicleCard data={this.state.selectedCategory}/>
-//     </div>
-//   }/>
 
-/* <Link to='/home'>Home</Link>
-<Route path='/home' render={() =>
-<section className="header">
-<h1>SWAPI-Box</h1>
-<p className="favorites">View Favorites</p>
-</section>
-} /> */
-
-/* <div className="App">
-<section className="header">
-<h1>SWAPI-Box</h1>
-<p className="favorites">View Favorites</p>
-</section>
-<Button handleClick={ (name) => this.fetchApi(name) }/>
-<CardWrapper films={this.state.selectedCategory}/>
-</div> */
