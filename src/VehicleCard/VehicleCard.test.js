@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import VehicleCard from './VehicleCard';
 import { shallow, mount } from 'enzyme';
 
-describe.skip('VehicleCard', ()=> {
+describe('VehicleCard', ()=> {
 
-  it('should have a className of vehicle-card', () => {
+  it('should have a className of card', () => {
     const wrapper = shallow(<VehicleCard/>)
-    expect(wrapper.find('.vehicle-card').length).toBe(1)
+    expect(wrapper.find('.card').length).toBe(1)
   });
 })

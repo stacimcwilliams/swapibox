@@ -5,7 +5,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('PlanetCard', ()=> {
 
-  it('should return a div with the className card', () => {
+  it.skip('should return a div with the className card', () => {
     const wrapper = shallow(<PlanetCard />)
     expect(wrapper.find(".card").length).toBe(1);
   });
