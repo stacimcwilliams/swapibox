@@ -35,7 +35,8 @@ class App extends Component {
     })
   }
 
-  render() {
+render() {
+
 
     return (
       <Router >
@@ -49,30 +50,12 @@ class App extends Component {
           <Button handleClick={ (name) => this.fetchApi(name) } name='planets'/>
           <Button handleClick={ (name) => this.fetchApi(name) } name='vehicles'/>
 
-          <Route path='/' render={() =>
-            <div className="select-category">
-              Select a Category
-            </div>
-          }/>
 
-
-          <Route path='/people' render={() => {
-            return(<div>
-              <CardWrapper data={this.state.selectedCategory.results} category={this.state.category}/>
-            </div> )
-          }
-        }/>
-
-        <Route path='/planets' render={() => {
+      <Route path={`/${this.state.category}`} render={() => {
           return(<div>
-            <CardWrapper data={this.state.selectedCategory.results} category={this.state.category} />
-          </div>)
-        }}/>
-
-        <Route path='/vehicles' render={() =>
-          <div>
             <CardWrapper data={this.state.selectedCategory.results} category={this.state.category}/>
-          </div>
+          </div> )
+          }
         }/>
 
         <Film movie={this.state.films}/>

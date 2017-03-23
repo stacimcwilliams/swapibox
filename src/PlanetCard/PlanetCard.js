@@ -13,7 +13,6 @@ const PlanetCard = ( {data} ) => {
   )
 }
 
-
 PlanetCard.propTypes = {
   name: React.PropTypes.string,
   terrain: React.PropTypes.string,
