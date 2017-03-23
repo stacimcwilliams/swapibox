@@ -31,8 +31,9 @@
 
 
 .logo{
-  color: grey;
+  color: black;
   font-size: 45px;
+  text-shadow: gold 0px 0 2px;
 }
 
 .select-category{

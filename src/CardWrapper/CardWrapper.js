@@ -34,6 +34,8 @@ const fetchSpeciesApi = (array) => {
 
 const getStateObject = (data) => {
   let temp = []
+  let planetResult = {}
+  let speciesResult = {}
   data.map(person => {
     const planetResult = fetchPlanetApi(person)
     const speciesResult = fetchSpeciesApi(person.species)
@@ -51,7 +53,6 @@ const cardGenerator = (data, category) => {
    } else if (category === "people") {
      console.log('ya', data)
       const stateObject = getStateObject(data)
-      // const stateObject = []
       console.log(stateObject)
       return stateObject.map((person, index) => <PeopleCard key={index} data={ person }/>)
   }
